@@ -8,6 +8,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+key.js
 
 # Node & NPM
 node_modules/
