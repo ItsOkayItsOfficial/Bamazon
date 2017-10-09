@@ -1,0 +1,23 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "Amazon-like storefront CLI app using MySQL",
+  "main": "market.js",
+  "dependencies": {
+    "inquirer": "^3.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsOkayItsOfficial/bamazon.git"
+  },
+  "author": "Alex P",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItsOkayItsOfficial/bamazon/issues"
+  },
+  "homepage": "https://github.com/ItsOkayItsOfficial/bamazon#readme"
+}
