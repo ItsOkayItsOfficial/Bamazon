@@ -31,7 +31,7 @@ var connection = mysql.createConnection({
 });
 
 
-// Connect to greatbay_db
+// Database - Connect to bamazon
 connection.connect(function (error) {
   if (error) throw error;
 
@@ -43,7 +43,7 @@ connection.connect(function (error) {
 let start = function () {
     inquirer
       .prompt({
-        name: "postOrBid",
+        name: "product",
         type: "rawlist",
         message: "Would you like to [POST] an auction or [BID] on an auction or [SEARCH] for an item/seller?",
         choices: ["POST", "BID", "SEARCH"]
