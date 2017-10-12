@@ -1,10 +1,10 @@
 /*
-* Author: Alex P
-* Project Name: bamazon
-* Version: 1
-* Date: 10.09.17
-* URL:  https://github.com/ItsOkayItsOfficial/bamazon
-*/
+ * Author: Alex P
+ * Project Name: bamazon
+ * Version: 1
+ * Date: 10.09.17
+ * URL:  https://github.com/ItsOkayItsOfficial/bamazon
+ */
 
 "use strict"
 
@@ -44,80 +44,86 @@ connection.connect(function (error) {
 
 
 // Function - Display all products
-let displayAll = function() {
-    // Connect - bamazon database
-    connection.query('SELECT * FROM products', function(error, response) {
-        if (error) { console.log(error) };
+let displayAll = function () {
 
-        // Variable (New) - Table
-        var theDisplayTable = new Table({
-            head: ['Item ID', 'Product Name', 'Department', 'Price', 'Quantity'],
-            colWidths: [10, 30, 18, 10, 14]
-        });
+  // Connect - bamazon database
+  connection.query('SELECT * FROM products', function (error, response) {
+    if (error) {
+      console.log(error)
+    };
 
-        // ForLoop - Returns each row
-        for (i = 0; i < response.length; i++) {
-            //push data to table
-            theDisplayTable.push(
-                [response[i].ItemID, response[i].ProductName, response[i].DepartmentName, response[i].Price, response[i].StockQuantity]
-            );
-        }
-
-        // Log - Table in it
-        console.log(theDisplayTable.toString());
-        inquireForPurchase();
+    // Variable (New) - Table
+    var theDisplayTable = new Table({
+      head: ['Item ID', 'Product Name', 'Department', 'Price', 'Quantity'],
+      colWidths: [10, 30, 18, 10, 14]
     });
+
+    // ForLoop - Returns each row
+    for (i = 0; i < response.length; i++) {
+      theDisplayTable.push(
+        [response[i].ItemID, response[i].ProductName, response[i].DepartmentName, response[i].Price, response[i].StockQuantity]
+      );
+    }
+
+    // Log - Table in it
+    console.log(theDisplayTable.toString());
+    inquireForPurchase();
+  });
 
 };
 // End - displayAll
 
 
 // Function - For Purchase
-let inquireForPurchase = function() {
-    //get item ID and desired quantity from user. Pass to purchase from Database
-    inquirer.prompt([
+let inquireForPurchase = function () {
+  // ID from database
+  inquirer.prompt([{
+      name: "ID",
+      type: "input",
+      message: "What is the item number for the vehicle you want to purchase?"
+    }, {
+      name: 'Quantity',
+      type: 'input',
+      message: "How many vehicles do you want to purchase?"
+    },
 
-        {
-            name: "ID",
-            type: "input",
-            message: "What is the item number of the item you wish to purchase?"
-        }, {
-            name: 'Quantity',
-            type: 'input',
-            message: "How many would you like to buy?"
-        },
-
-    ]).then(function(answers) {
-        //set captured input as variables, pass variables as parameters.
-        var quantityDesired = answers.Quantity;
-        var IDDesired = answers.ID;
-        purchaseFromDatabase(IDDesired, quantityDesired);
-    });
+  ]).then(function (answers) {
+    // Capture values
+    var quantityDesired = answers.Quantity;
+    var IDDesired = answers.ID;
+    purchaseFromDatabase(IDDesired, quantityDesired);
+  });
 
 };
 // End - inquireForPurchase
 
 
-function purchaseFromDatabase(ID, quantityNeeded) {
-    //check quantity of desired purchase. Minus quantity of the itemID from database if possible. Else inform user "Quantity desired not in stock"
-    connection.query('SELECT * FROM Products WHERE ItemID = ' + ID, function(error, response) {
-        if (error) { console.log(error) };
+// Function - From Database
+let purchaseFromDatabase = function (ID, quantityNeeded) {
+  // Quantity check
+  connection.query('SELECT * FROM Products WHERE ItemID = ' + ID, function (error, response) {
+    if (error) {
+      console.log(error)
+    };
 
-        //if in stock
-        if (quantityNeeded <= response[0].StockQuantity) {
-            //calculate cost
-            var totalCost = response[0].Price * quantityNeeded;
-            //inform user
-            console.log("We have what you need! I'll have your order right out!");
-            console.log("Your total cost for " + quantityNeeded + " " + response[0].ProductName + " is " + totalCost + ". Thank you for your Business!");
-            //update database, minus purchased quantity
-            connection.query('UPDATE Products SET StockQuantity = StockQuantity - ' + quantityNeeded + ' WHERE ItemID = ' + ID);
-        } else {
-            console.log("Our apologies. We don't have enough " + response[0].ProductName + " to fulfill your order.");
-        };
-        displayAll();//recursive shopping is best shopping! Shop till you drop!
-    });
+    // If - in stock
+    if (quantityNeeded <= response[0].StockQuantity) {
+      var totalCost = response[0].Price * quantityNeeded;
 
-}; //end purchaseFromDatabase
+      console.log("We have what you need! I'll have your order right out!");
+      console.log("Your total cost for " + quantityNeeded + " " + response[0].ProductName + " is " + totalCost + ". Thank you for your Business!");
 
+      connection.query('UPDATE Products SET StockQuantity = StockQuantity - ' + quantityNeeded + ' WHERE ItemID = ' + ID);
+    } else {
+      console.log("Our apologies. We don't have enough " + response[0].ProductName + " to fulfill your order.");
+    };
+
+    // Recursive party
+    displayAll();
+  });
+
+};
+// End - purchaseFromDatabase
+
+// Run
 displayAll();
