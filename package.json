@@ -4,6 +4,7 @@
   "description": "Amazon-like storefront CLI app using MySQL",
   "main": "market.js",
   "dependencies": {
+    "cli-table": "^0.3.1",
     "inquirer": "^3.3.0",
     "mysql": "^2.15.0"
   },
