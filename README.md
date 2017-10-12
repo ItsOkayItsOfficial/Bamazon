@@ -1,6 +1,8 @@
 # bamazon
 Amazon-like storefront CLI app using MySQL
 
+## GitHub is Dumb
+GitHub says it won't upload a file larger than 100MB, doesn't recommend anything more than 75MB, and won't actually upload anything larger than 25MB. So that's why my video walkthroughs of the app aren't included here. Because GitHub is dumb. So dumb.
 
 ## Items to Buy
 * Porsche 917K - $14,000,000.00
