@@ -11,8 +11,8 @@
 // Variables - Modules
 var mysql = require("mysql");
 var inquirer = require("inquirer");
-var Table = require("cli-table");
-var key = require("./keys.js");
+var table = require("cli-table");
+var key = require("./key.js");
 
 // Variables - Global
 var input = process.argv;
@@ -37,9 +37,6 @@ var connection = mysql.createConnection({
 // Database - Connect to bamazon
 connection.connect(function (error) {
   if (error) throw error;
-
-  // Run - start
-  start();
 });
 
 
@@ -52,20 +49,20 @@ let displayAll = function () {
       console.log(error)
     };
 
-    // Variable (New) - Table
-    var theDisplayTable = new Table({
+    // Variable (New) - table
+    var theDisplayTable = new table({
       head: ['Item ID', 'Product Name', 'Department', 'Price', 'Quantity'],
       colWidths: [10, 30, 18, 10, 14]
     });
 
     // ForLoop - Returns each row
-    for (i = 0; i < response.length; i++) {
+    for (var i = 0; i < response.length; i++) {
       theDisplayTable.push(
-        [response[i].ItemID, response[i].ProductName, response[i].DepartmentName, response[i].Price, response[i].StockQuantity]
+        [response[i].item_id, response[i].product_name, response[i].department_name, response[i].price, response[i].stock_quantity]
       );
     }
 
-    // Log - Table in it
+    // Log - table in it
     console.log(theDisplayTable.toString());
     inquireForPurchase();
   });
@@ -76,7 +73,7 @@ let displayAll = function () {
 
 // Function - For Purchase
 let inquireForPurchase = function () {
-  // ID from database
+  // Inquirer - Get ID and Quantity
   inquirer.prompt([{
       name: "ID",
       type: "input",
@@ -101,21 +98,21 @@ let inquireForPurchase = function () {
 // Function - From Database
 let purchaseFromDatabase = function (ID, quantityNeeded) {
   // Quantity check
-  connection.query('SELECT * FROM Products WHERE ItemID = ' + ID, function (error, response) {
+  connection.query('SELECT * FROM products WHERE item_id = ' + ID, function (error, response) {
     if (error) {
       console.log(error)
     };
 
     // If - in stock
-    if (quantityNeeded <= response[0].StockQuantity) {
-      var totalCost = response[0].Price * quantityNeeded;
+    if (quantityNeeded <= response[0].stock_quantity) {
+      var totalCost = response[0].price * quantityNeeded;
 
       console.log("We have what you need! I'll have your order right out!");
-      console.log("Your total cost for " + quantityNeeded + " " + response[0].ProductName + " is " + totalCost + ". Thank you for your Business!");
+      console.log("Your total cost for " + quantityNeeded + " " + response[0].product_name + " is USD $" + totalCost + ". Thank you for your business!");
 
-      connection.query('UPDATE Products SET StockQuantity = StockQuantity - ' + quantityNeeded + ' WHERE ItemID = ' + ID);
+      connection.query('UPDATE products SET stock_quantity = stock_quantity - ' + quantityNeeded + ' WHERE item_id = ' + ID);
     } else {
-      console.log("Our apologies. We don't have enough " + response[0].ProductName + " to fulfill your order.");
+      console.log("Our apologies. We don't have enough " + response[0].product_name + " to fulfill your order.");
     };
 
     // Recursive party
