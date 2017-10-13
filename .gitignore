@@ -9,7 +9,7 @@
 *.userosscache
 *.sln.docstates
 key.js
-amazon_logo.eps
+bamazon_logo.eps
 
 # Node & NPM
 node_modules/
