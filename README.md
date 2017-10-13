@@ -1,5 +1,5 @@
 
-<img src="bamazon_logo.svg" style="height: 500px">
+<img src="bamazon_logo.jpg" >
 
 # Amazon-like storefront CLI app using MySQL
 
