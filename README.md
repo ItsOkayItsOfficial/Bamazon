@@ -1,5 +1,5 @@
 
-<img src="c:\Users\Alex\Desktop\Bootcamp\Homework\bamazon\bamazon_logo.svg" style="height: 500px">
+<img src="bamazon_logo.svg" style="height: 500px">
 
 # Amazon-like storefront CLI app using MySQL
 
@@ -8,7 +8,7 @@
 ## MySQL Workbench
 ***
 
-|<img src="c:\Users\Alex\Desktop\Bootcamp\Homework\bamazon\bamazon_schema1.PNG" style="height: 200px">|<img src="c:\Users\Alex\Desktop\Bootcamp\Homework\bamazon\bamazon_schema2.PNG" style="height: 200px">|<img src="c:\Users\Alex\Desktop\Bootcamp\Homework\bamazon\bamazon_schema3.PNG" style="height: 200px">
+|<img src="bamazon_schema1.PNG" style="height: 200px">|<img src="bamazon_schema2.PNG" style="height: 200px">|<img src="bamazon_schema3.PNG" style="height: 200px">
 
 
 
@@ -66,8 +66,7 @@ Functionality 2
 * nodeJS
 * MySQL
 * npm packages:
-	- [mysql](https://github.com/felixge/node-mysql)
-	- [prompt](https://github.com/flatiron/prompt)
-	- [colors/safe](https://github.com/Marak/colors.js)
-	- [cli-table](https://github.com/Automattic/cli-table)
+	- [mysql](https://www.npmjs.com/package/mysql)
+	- [inquirer](https://www.npmjs.com/package/inquirer)
+	- [cli-table](https://www.npmjs.com/package/cli-table)
 
