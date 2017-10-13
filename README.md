@@ -1,8 +1,20 @@
+
+
 # bamazon
 Amazon-like storefront CLI app using MySQL
 
-## GitHub is Dumb
-GitHub says it won't upload a file larger than 100MB, doesn't recommend anything more than 75MB, and won't actually upload anything larger than 25MB. So that's why my video walkthroughs of the app aren't included here. Because GitHub is dumb. So dumb.
+#### Video Walk-through
+***
+
+Functionality 1
+
+[![Functionality Walk-through](http://img.youtube.com/vi/Irj-nSaiJEw/maxresdefault.jpg)](http://www.youtube.com/watch?v=Irj-nSaiJEw)
+
+Functionality 2
+
+[![Functionality Walk-through](http://img.youtube.com/vi/3mEGbFjNtPo/maxresdefault.jpg)](http://www.youtube.com/watch?v=3mEGbFjNtPo)
+
+
 
 ## Items to Buy
 * Porsche 917K - $14,000,000.00
@@ -15,3 +27,19 @@ GitHub says it won't upload a file larger than 100MB, doesn't recommend anything
 * Aston Martin DB5 - $80,000.00
 * Porsche 959 - $110,000.00
 * CJ-5 Willy's - $16,000.00
+
+
+
+
+#### Technologies Used:
+***
+
+* Javascript
+* nodeJS
+* MySQL
+* npm packages:
+	- [mysql](https://github.com/felixge/node-mysql)
+	- [prompt](https://github.com/flatiron/prompt)
+	- [colors/safe](https://github.com/Marak/colors.js)
+	- [cli-table](https://github.com/Automattic/cli-table)
+

@@ -205,7 +205,6 @@ let removeRequest = function () {
 
     }]).then(function (answer) {
         var id = answer.ID;
-        test
 
         // Run - removeFromDatabase
         removeFromDatabase(id);
