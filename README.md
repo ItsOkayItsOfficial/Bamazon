@@ -10,7 +10,7 @@
 
 <a style="width: 200px;"><img src="bamazon_schema1.PNG"></a>
 <a style="width: 200px;"><img src="bamazon_schema2.PNG"></a>
-<a><img src="bamazon_schema3.PNG" style="width: 200px;"></a>
+<a><img src="bamazon_schema3.PNG" width="200px"></a>
 
 
 
