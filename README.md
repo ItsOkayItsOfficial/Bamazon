@@ -8,9 +8,9 @@
 ## MySQL Workbench
 ***
 
-<a style="height:150px"><img src="bamazon_schema1.PNG"></a>
-<a style="height:150px"><img src="bamazon_schema2.PNG"></a>
-<a style="height:150px"><img src="bamazon_schema3.PNG"></a>
+<a style="height: 150px;"><img src="bamazon_schema1.PNG"></a>
+<a style="height: 150px;"><img src="bamazon_schema2.PNG"></a>
+<a style="height: 150px;"><img src="bamazon_schema3.PNG"></a>
 
 
 
