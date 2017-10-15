@@ -8,7 +8,7 @@
 ## MySQL Workbench
 ***
 
-|<img src="bamazon_schema1.PNG" style="height: 200px">|<img src="bamazon_schema2.PNG" style="height: 200px">|<img src="bamazon_schema3.PNG" style="height: 200px">
+|<img src="bamazon_schema1.PNG" style="height: 150px">|<img src="bamazon_schema2.PNG" style="height: 150px">|<img src="bamazon_schema3.PNG" style="height: 200px">
 
 
 
