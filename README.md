@@ -1,5 +1,5 @@
 
-<a style="margin:15%"><img src="bamazon_logo.jpg" width="75%"></a>
+<a><img src="bamazon_logo.jpg" width="75%" style="margin:15%"></a>
 
 # Amazon-like storefront CLI app using MySQL
 
