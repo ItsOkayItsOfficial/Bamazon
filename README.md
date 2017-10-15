@@ -1,5 +1,5 @@
 
-<div style="text-align:center"><img src="bamazon_logo.jpg" width="75%"></a>
+<div style="text-align:center"><img src="bamazon_logo.jpg" width="75%"></div>
 
 # Amazon-like storefront CLI app using MySQL
 
@@ -8,7 +8,7 @@
 ## MySQL Workbench
 ***
 
-<a><img src="bamazon_schema1.PNG" width="49%"></a></a><img src="bamazon_schema2.PNG" width="49%" align="right"></a>
+<a><img src="bamazon_schema1.PNG" width="49%"><p>initial schema</p></a><a><p>table values</p><img src="bamazon_schema2.PNG" width="49%" align="right"></a>
 <a><img src="bamazon_schema3.PNG"></a>
 
 
